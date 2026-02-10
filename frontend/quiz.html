@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Quiz - AI Baby Sleep Optimizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="section">
+        <div class="container container-sm">
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar" style="width: 12.5%;"></div>
+                </div>
+                <p class="progress-text" id="progressText">Step 1 of 8</p>
+            </div>
+
+            <!-- Quiz Container -->
+            <div class="card fade-in" id="quizCard">
+
+                <!-- Step 1: Baby Age -->
+                <div class="quiz-step active" data-step="1">
+                    <h2 class="mb-3">How old is your baby?</h2>
+                    <p class="text-light mb-4">This helps us create age-appropriate wake windows and nap schedules.</p>
+
+                    <div class="form-group">
+                        <label class="form-label">Select age range</label>
+                        <select class="form-select" id="babyAge" required>
+                            <option value="">Choose...</option>
+                            <option value="0-6weeks">0-6 weeks</option>
+                            <option value="6-12weeks">6-12 weeks</option>
+                            <option value="3-4months">3-4 months</option>
+                            <option value="5-6months">5-6 months</option>
+                            <option value="7-9months">7-9 months</option>
+                            <option value="10-12months">10-12 months</option>
+                            <option value="12-18months">12-18 months</option>
+                            <option value="18-24months">18-24 months</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary btn-block mt-4" onclick="nextStep(1)">
+                        Continue
+                    </button>
+                </div>
+
+                <!-- Step 2: Feeding Method -->
+                <div class="quiz-step" data-step="2">
+                    <h2 class="mb-3">How do you feed your baby?</h2>
+                    <p class="text-light mb-4">Feeding affects sleep timing and night wakings.</p>
+
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="feedingMethod" value="breastfed">
+                            <span>Exclusively breastfed</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="feedingMethod" value="formula">
+                            <span>Formula fed</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="feedingMethod" value="mixed">
+                            <span>Both breast and formula</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-4" style="display: flex; gap: 16px;">
+                        <button class="btn btn-outline" onclick="prevStep(2)" style="flex: 1;">
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(2)" style="flex: 2;">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Night Sleep Pattern -->
+                <div class="quiz-step" data-step="3">
+                    <h2 class="mb-3">How does your baby sleep at night?</h2>
+                    <p class="text-light mb-4">Be honest—we're here to help, not judge! 💙</p>
+
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="nightSleep" value="wakes-every-hour">
+                            <span>Wakes every hour or more</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="nightSleep" value="wakes-2-3-times">
+                            <span>Wakes 2-3 times per night</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="nightSleep" value="wakes-once">
+                            <span>Wakes once per night</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="nightSleep" value="sleeps-through">
+                            <span>Sleeps through the night</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-4" style="display: flex; gap: 16px;">
+                        <button class="btn btn-outline" onclick="prevStep(3)" style="flex: 1;">
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(3)" style="flex: 2;">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Nap Pattern -->
+                <div class="quiz-step" data-step="4">
+                    <h2 class="mb-3">How are daytime naps going?</h2>
+                    <p class="text-light mb-4">Daytime sleep affects nighttime sleep!</p>
+
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="napPattern" value="no-naps">
+                            <span>Refuses to nap / Cat naps only</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="napPattern" value="short-naps">
+                            <span>Short naps (under 30 minutes)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="napPattern" value="inconsistent">
+                            <span>Inconsistent (sometimes good, sometimes bad)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="napPattern" value="good-naps">
+                            <span>Pretty consistent naps</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-4" style="display: flex; gap: 16px;">
+                        <button class="btn btn-outline" onclick="prevStep(4)" style="flex: 1;">
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(4)" style="flex: 2;">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Bedtime Routine -->
+                <div class="quiz-step" data-step="5">
+                    <h2 class="mb-3">Do you have a bedtime routine?</h2>
+                    <p class="text-light mb-4">Consistency is key for sleep success.</p>
+
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="bedtimeRoutine" value="none">
+                            <span>No routine yet</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="bedtimeRoutine" value="inconsistent">
+                            <span>We try, but it's inconsistent</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="bedtimeRoutine" value="consistent">
+                            <span>Yes, pretty consistent routine</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-4" style="display: flex; gap: 16px;">
+                        <button class="btn btn-outline" onclick="prevStep(5)" style="flex: 1;">
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(5)" style="flex: 2;">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Sleep Environment -->
+                <div class="quiz-step" data-step="6">
+                    <h2 class="mb-3">What's your baby's sleep environment like?</h2>
+                    <p class="text-light mb-4">Environment plays a huge role in sleep quality.</p>
+
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="sleepEnvironment" value="bright-noisy">
+                            <span>Bright and/or noisy</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sleepEnvironment" value="somewhat-dark">
+                            <span>Somewhat dark, some noise</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sleepEnvironment" value="dark-quiet">
+                            <span>Dark and quiet</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="sleepEnvironment" value="optimal">
+                            <span>Dark, quiet, white noise machine</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-4" style="display: flex; gap: 16px;">
+                        <button class="btn btn-outline" onclick="prevStep(6)" style="flex: 1;">
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(6)" style="flex: 2;">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 7: Parenting Style -->
+                <div class="quiz-step" data-step="7">
+                    <h2 class="mb-3">What's your sleep training preference?</h2>
+                    <p class="text-light mb-4">No judgment—we'll tailor the plan to YOUR comfort level.</p>
+
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="parentingStyle" value="gentle">
+                            <span>Gentle/No cry methods only</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="parentingStyle" value="moderate">
+                            <span>Some crying is okay if necessary</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="parentingStyle" value="cio">
+                            <span>Cry-it-out is fine with me</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="parentingStyle" value="unsure">
+                            <span>Not sure yet / Need guidance</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-4" style="display: flex; gap: 16px;">
+                        <button class="btn btn-outline" onclick="prevStep(7)" style="flex: 1;">
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="nextStep(7)" style="flex: 2;">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 8: Primary Struggle -->
+                <div class="quiz-step" data-step="8">
+                    <h2 class="mb-3">What's your biggest struggle right now?</h2>
+                    <p class="text-light mb-4">We'll prioritize solutions for this in your plan.</p>
+
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="primaryStruggle" value="night-wakings">
+                            <span>😫 Frequent night wakings</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="primaryStruggle" value="short-naps">
+                            <span>😴 Short or inconsistent naps</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="primaryStruggle" value="bedtime-battles">
+                            <span>😤 Bedtime takes forever</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="primaryStruggle" value="early-waking">
+                            <span>🌅 Early morning wake-ups</span>
+                        </label>
+                    </div>
+
+                    <div class="mt-4" style="display: flex; gap: 16px;">
+                        <button class="btn btn-outline" onclick="prevStep(8)" style="flex: 1;">
+                            Back
+                        </button>
+                        <button class="btn btn-primary" onclick="goToPayment()" style="flex: 2;">
+                            See My Sleep Plan →
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Reassurance Message -->
+            <div class="text-center mt-4">
+                <p class="text-sm text-light">
+                    🔒 Your information is private and secure<br>
+                    💙 You're doing great—every parent struggles with sleep
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/quiz.js"></script>
+
+</body>
+
+</html>

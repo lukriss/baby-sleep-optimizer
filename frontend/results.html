@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Sleep Plan - AI Baby Sleep Optimizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+    <div class="section">
+        <div class="container container-sm">
+
+            <!-- Success Header -->
+            <div class="text-center mb-4 fade-in">
+                <div style="font-size: 64px; margin-bottom: 16px;">🎉</div>
+                <h1>Your Personalized Sleep Plan is Ready!</h1>
+                <p class="text-light text-lg">Here's your custom schedule. You've got this! 💙</p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading-plan" class="spinner-container">
+                <div class="spinner"></div>
+                <p class="text-center text-light mt-3">Generating your personalized plan...</p>
+            </div>
+
+            <!-- Sleep Plan Content (Hidden until loaded) -->
+            <div id="sleep-plan-content" class="hidden">
+
+                <!-- Action Buttons -->
+                <div class="card mb-4">
+                    <div style="display: flex; gap: 12px; justify-content: center;">
+                        <button id="download-btn" onclick="downloadPDF()" class="btn btn-primary"
+                            style="min-width: 250px; padding: 16px; font-size: 18px;">
+                            📥 Download Premium Sleep Guide
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sleep Plan Display -->
+                <div class="card slide-in" id="plan-display">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+
+                <!-- Bonus Content -->
+                <!-- Bonus Content -->
+                <div class="card mb-4 mt-4 text-center" style="border: 2px solid #F6E05E; background: #FFFFF0;">
+                    <h3 class="mb-3" style="color: #744210;">Your Free Bonus Guide</h3>
+
+                    <a href="essential_guide.pdf" download class="d-block mb-3" style="text-decoration: none;">
+                        <img src="img/bonus-cover.jpg" alt="Essential Sleep Guide Bonus"
+                            style="max-width: 250px; width: 100%; border-radius: 8px; box-shadow: 0 8px 16px rgba(0,0,0,0.15); transition: transform 0.2s;"
+                            onmouseover="this.style.transform='scale(1.02)'"
+                            onmouseout="this.style.transform='scale(1)'">
+                    </a>
+
+                    <div>
+                        <a href="essential_guide.pdf" download class="btn"
+                            style="background: #ECC94B; border: 1px solid #D69E2E; color: #744210; font-weight: 700; padding: 12px 24px; font-size: 1.1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            Download your free guide from us
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Share CTA -->
+                <div class="card mt-4" style="background: linear-gradient(135deg, #F0F4F8 0%, var(--color-bg) 100%);">
+                    <h3>💝 Help Another Tired Parent</h3>
+                    <p class="text-light">Know someone struggling with baby sleep? Share this tool:</p>
+                    <button onclick="shareLink()" class="btn btn-secondary">
+                        Share AI Baby Sleep Optimizer
+                    </button>
+                </div>
+
+                <!-- Disclaimer -->
+                <div class="alert alert-info mt-4">
+                    <p class="text-sm mb-2"><strong>Important Reminders:</strong></p>
+                    <ul style="margin-left: 20px; font-size: 14px;">
+                        <li>This is not medical advice. Always consult your pediatrician.</li>
+                        <li>Every baby is different. Be patient and consistent.</li>
+                        <li>Most parents see improvement in 3-5 nights.</li>
+                        <li>It's okay to adjust the plan to fit your family's needs.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="section no-print" style="background: var(--color-text); color: white; text-align: center;">
+        <div class="container">
+            <p>&copy; 2026 AI Baby Sleep Optimizer</p>
+            <p style="margin-top: 16px;">
+                <a href="index.html" style="color: rgba(255,255,255,0.8); margin: 0 16px;">Home</a>
+                <a href="faq.html" style="color: rgba(255,255,255,0.8); margin: 0 16px;">FAQ</a>
+                <a href="privacy.html" style="color: rgba(255,255,255,0.8); margin: 0 16px;">Privacy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/results.js"></script>
+
+</body>
+
+</html>

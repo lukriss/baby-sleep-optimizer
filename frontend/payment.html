@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Sleep Plan - AI Baby Sleep Optimizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="section-lg">
+        <div class="container container-sm">
+
+            <div class="text-center mb-4">
+                <div style="font-size: 48px; margin-bottom: 16px;">✨👶💤</div>
+                <h1>Your Personalized Sleep Plan is Ready!</h1>
+                <p class="text-light text-lg">One small payment for one night of better sleep</p>
+            </div>
+
+            <!-- Preview of Sleep Plan (Blurred) -->
+            <div class="card blur-overlay mb-4">
+                <h3>Your Custom Sleep Plan Includes:</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">6:30 AM - Wake Time</div>
+                        <div class="timeline-content">Start the day with feeding and bright light exposure</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">8:30 AM - Morning Nap</div>
+                        <div class="timeline-content">Age-appropriate nap duration based on your baby's age</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 PM - Afternoon Nap</div>
+                        <div class="timeline-content">Longer nap period with feeding before</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">6:30 PM - Bedtime Routine</div>
+                        <div class="timeline-content">Gentle routine tailored to your parenting style</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">7:00 PM - Lights Out</div>
+                        <div class="timeline-content">Optimal bedtime for your baby's age</div>
+                    </div>
+                </div>
+
+                <div class="unlock-message">
+                    <h3 style="margin-bottom: 8px;">🔓 Unlock Your Full Plan</h3>
+                    <p class="text-light mb-0">Complete details, bedtime routine, feeding tips & more</p>
+                </div>
+            </div>
+
+            <!-- Payment Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center mb-2">Get Your Complete Sleep Plan</h2>
+                    <div class="text-center">
+                        <div
+                            style="font-size: 40px; font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">
+                            $2.99
+                        </div>
+                        <p class="text-light text-sm">One-time payment • No subscription • Instant access</p>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <!-- What You Get -->
+                    <div class="mb-4">
+                        <h3 style="font-size: 18px; margin-bottom: 16px;">Here's what you'll get instantly:</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="color: var(--color-success); font-size: 20px;">✓</span>
+                                <span>Complete 24-hour sleep schedule for your baby's age</span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="color: var(--color-success); font-size: 20px;">✓</span>
+                                <span>Gentle bedtime routine (no cry / some cry / CIO)</span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="color: var(--color-success); font-size: 20px;">✓</span>
+                                <span>Feeding timing guidance</span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="color: var(--color-success); font-size: 20px;">✓</span>
+                                <span>What to expect the first 3 nights</span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="color: var(--color-success); font-size: 20px;">✓</span>
+                                <span>Downloadable & printable PDF</span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="color: var(--color-success); font-size: 20px;">✓</span>
+                                <span>Save & Print anytime</span>
+                            </div>
+                            <div style="display: flex; align-items: start; gap: 12px;">
+                                <span style="color: var(--color-success); font-size: 20px;">✓</span>
+                                <span><strong>BONUS:</strong> Essential Sleep Foundations Guide ($19 Value)</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- PayPal Payment Button Container -->
+                    <div id="paypal-button-container"></div>
+
+                    <!-- Loading State -->
+                    <div id="payment-loading" class="hidden">
+                        <div class="spinner-container">
+                            <div class="spinner"></div>
+                            <p class="text-center text-light mt-3">Processing your payment...</p>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="payment-error" class="hidden">
+                        <div class="alert alert-warning">
+                            <p class="mb-0">Payment failed. Please try again or contact support.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+                    <div class="trust-badges" style="justify-content: center; margin: 0;">
+                        <div class="trust-badge">
+                            <span class="trust-badge-icon">🔒</span>
+                            <span style="font-size: 12px;">Secure Payment</span>
+                        </div>
+                        <div class="trust-badge">
+                            <span class="trust-badge-icon">💳</span>
+                            <span style="font-size: 12px;">PayPal Protected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="text-center mt-4">
+                <p class="text-sm text-light">
+                    ⭐⭐⭐⭐⭐<br>
+                    "Worth every penny! My baby is sleeping so much better." - Sarah M.
+                </p>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="alert alert-info mt-4">
+                <p class="text-sm mb-0">
+                    <strong>Note:</strong> This is not medical advice. Always consult your pediatrician about your
+                    baby's health. Due to the instant digital nature of this product, refunds cannot be provided.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PayPal SDK - Using Sandbox Test Client for Testing -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=AZrgfif8Ya3SPJXeC8ELay6jB9McJ3pdPh2RZb2hk_pRpZgWMz6qWzMOJfol5d1NGu13w_qzKjWckZHS&currency=USD"></script>
+    <script src="js/payment.js"></script>
+
+</body>
+
+</html>
