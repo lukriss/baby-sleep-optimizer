@@ -13,7 +13,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: [
+        'https://babysleepoptimizer.com',
+        'https://babysleepoptimizer.com',
+        'http://localhost:3000'
+    ]
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 

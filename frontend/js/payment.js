@@ -92,7 +92,7 @@ async function generateSleepPlan() {
         const paymentDetails = JSON.parse(localStorage.getItem('paymentDetails'));
 
         // Call backend API to generate plan
-        const response = await fetch('/api/generate-plan', {
+        const response = await fetch('https://baby-sleep-optimizer-production.up.railway.app/api/generate-plan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
