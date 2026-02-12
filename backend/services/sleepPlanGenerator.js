@@ -4,9 +4,9 @@
 const axios = require('axios');
 
 const WAVESPEED_API_KEY = process.env.WAVESPEED_API_KEY;
-// IMPORTANT: Verify this endpoint URL matches your Wavespeed API documentation
-// Common endpoints: https://api.wavespeed.ai/v1/chat/completions or similar
-const WAVESPEED_API_URL = process.env.WAVESPEED_API_URL || 'https://api.wavespeed.ai/v1/chat/completions';
+// CORRECT Wavespeed API endpoint (verified from official documentation)
+// Wavespeed uses llm.wavespeed.ai for LLM API calls, NOT api.wavespeed.ai
+const WAVESPEED_API_URL = process.env.WAVESPEED_API_URL || 'https://llm.wavespeed.ai/v1/chat/completions';
 
 // Validate configuration at startup
 if (!WAVESPEED_API_KEY) {

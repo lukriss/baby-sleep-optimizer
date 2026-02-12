@@ -263,35 +263,14 @@ function downloadPDF() {
         const margin = 20;
         const contentWidth = width - (margin * 2);
 
-        // Helper: Safe string with character cleanup
-        const safeStr = (str) => {
-            if (str === null || str === undefined) return '';
-            let text = String(str);
-
-            // Replace HTML entities manually
-            text = text.replace(/&apos;/g, "'");
-            text = text.replace(/&quot;/g, '"');
-            text = text.replace(/&amp;/g, '&');
-            text = text.replace(/&lt;/g, '<');
-            text = text.replace(/&gt;/g, '>');
-            text = text.replace(/&#39;/g, "'");
-            text = text.replace(/&#34;/g, '"');
-
-            // Replace smart quotes with regular quotes
-            text = text.replace(/[\u2018\u2019]/g, "'");
-            text = text.replace(/[\u201C\u201D]/g, '"');
-
-            // Remove any remaining HTML tags
-            text = text.replace(/<[^>]*>/g, '');
-
-            return text;
-        };
-
         // Colors
         const primaryColor = [107, 155, 209]; // #6B9BD1
         const secondaryColor = [244, 228, 215]; // #F4E4D7
         const textColor = [45, 52, 54]; // #2D3436
         const lightText = [100, 100, 100];
+
+        // Safe helpers
+        const safeStr = (str) => (str === null || str === undefined) ? '' : String(str);
 
         // Helper: Add decorative background
         function addPageDecor() {
