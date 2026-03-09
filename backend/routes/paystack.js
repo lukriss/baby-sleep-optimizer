@@ -21,7 +21,12 @@ router.post('/paystack/initialize', async (req, res) => {
             return res.status(500).json({ error: 'Payment system not configured' });
         }
 
-        const amountInCents = amount || 299;
+        // Paystack expects amount in the smallest currency unit (cents for USD)
+        // Amount must be provided by the client (in cents, e.g. 1900 for $19.00)
+        if (!amount) {
+            return res.status(400).json({ error: 'Amount is required' });
+        }
+        const amountInCents = amount;
 
         const response = await axios.post('https://api.paystack.co/transaction/initialize', {
             email: email,
@@ -106,7 +111,7 @@ router.get('/paystack/verify/:reference', async (req, res) => {
     }
 });
 
-// Paystack Webhook
+// Paystack Webhook (for server-to-server payment confirmation)
 router.post('/paystack/webhook', express.raw({ type: 'application/json' }), (req, res) => {
     try {
         const crypto = require('crypto');
@@ -121,13 +126,14 @@ router.post('/paystack/webhook', express.raw({ type: 'application/json' }), (req
 
             if (event.event === 'charge.success') {
                 console.log(`💰 Payment confirmed via webhook: ${event.data.reference}`);
+                // Payment confirmed server-side — could trigger email delivery here
             }
         }
 
         res.sendStatus(200);
     } catch (error) {
         console.error('Webhook error:', error);
-        res.sendStatus(200);
+        res.sendStatus(200); // Always respond 200 to webhooks
     }
 });
 
